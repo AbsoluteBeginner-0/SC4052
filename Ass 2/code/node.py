@@ -8,17 +8,17 @@ class Edge:
         self.__from = src
         self.__to = to
     
-    def SetWeight(self, weight):
-        self.__weight = weight
-    
-    def GetWeight(self):
-        return self.__weight
-    
     def GetFrom(self):
         return self.__from.GetLabel()
     
     def GetTo(self):
         return self.__to.GetLabel()
+    
+    def GetWeight(self):
+        return self.__weight
+    
+    def SetWeight(self, weight):
+        self.__weight = weight
 
 class Node:
     __id = None
@@ -38,6 +38,21 @@ class Node:
             edge.SetWeight(1 / len(self.__edges))
         return new_edge
     
+    def GetEdge(self, neighbor_label):
+        for edge in self.__edges:
+            if neighbor_label == edge.GetTo():
+                return edge
+        return None
+
+    def GetEdges(self):
+        return self.__edges
+    
+    def GetEdgeSum(self):
+        sum = 0
+        for edge in self.__edges:
+            sum += edge.GetWeight()
+        return sum
+    
     def GetLabel(self):
         return self.__label
 
@@ -46,18 +61,3 @@ class Node:
         for edge in self.__edges:
             neighbors.append(edge.__to)
         return neighbors
-    
-    def GetEdges(self):
-        return self.__edges
-    
-    def GetEdge(self, neighbor_label):
-        for edge in self.__edges:
-            if neighbor_label == edge.GetTo():
-                return edge
-        return None
-    
-    def GetEdgeSum(self):
-        sum = 0
-        for edge in self.__edges:
-            sum += edge.GetWeight()
-        return sum

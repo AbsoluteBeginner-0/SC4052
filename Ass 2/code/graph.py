@@ -10,29 +10,6 @@ class Graph:
         self.__nodes = []
         self.__edges = []
     
-    def GetNodeCount(self):
-        return self.__node_count
-    
-    def GetNodeByID(self, id):
-        return self.__nodes[id - 1].GetLabel()
-    
-    def GetRandomNode(self):
-        return self.__nodes[random.randint(1, self.__node_count)].GetLabel()
-
-    def AddNode(self, label):
-        for node in self.__nodes:
-            if label == node.GetLabel():
-                raise Exception(f"Vertex with label {label} already exists!")
-
-        self.__node_count += 1
-        self.__nodes.append(Node(self.__node_count, label))
-    
-    def GetNodeFromLabel(self, label):
-        for node in self.__nodes:
-            if label == node.GetLabel():
-                return node
-        raise Exception("No node with label '" + label + "' exists!")
-    
     def AddEdge(self, label_from, label_to):
         node_from = self.GetNodeFromLabel(label_from)
         node_to = self.GetNodeFromLabel(label_to)
@@ -53,15 +30,13 @@ class Graph:
         # potential_edge.SetWeight(weight)
         # raise Exception(f"Existing edge of weight {old_weight} from '{label_from}' to '{label_to}' replaced with weight {weight}.")
 
-    def Print(self):
-        print("Vertices:")
+    def AddNode(self, label):
         for node in self.__nodes:
-            print(node.GetLabel())
-        print("Edges: ")
-        for edge in self.__edges:
-            print(f"{{{edge.GetFrom()}, {edge.GetTo()}, {edge.GetWeight()}}}")
-        print("Adjacency Matrix:")
-        print(self.GetAdjacencyMatrix())
+            if label == node.GetLabel():
+                raise Exception(f"Vertex with label {label} already exists!")
+
+        self.__node_count += 1
+        self.__nodes.append(Node(self.__node_count, label))
     
     def GetAdjacencyMatrix(self):
         adjacency_matrix = []
@@ -75,3 +50,26 @@ class Graph:
                     row.append(0)
             adjacency_matrix.append(row)
         return adjacency_matrix
+    
+    def GetNodeCount(self):
+        return self.__node_count
+    
+    def GetNodeFromLabel(self, label):
+        for node in self.__nodes:
+            if label == node.GetLabel():
+                return node
+        raise Exception("No node with label '" + label + "' exists!")
+    
+    def GetRandomNode(self):
+        return self.__nodes[random.randint(1, self.__node_count)].GetLabel()
+    
+    def Print(self):
+        print("Vertices:")
+        for node in self.__nodes:
+            print(node.GetLabel())
+        print("Edges: ")
+        for edge in self.__edges:
+            print(f"{{{edge.GetFrom()}, {edge.GetTo()}, {edge.GetWeight()}}}")
+        print("Adjacency Matrix:")
+        print(self.GetAdjacencyMatrix())
+    
