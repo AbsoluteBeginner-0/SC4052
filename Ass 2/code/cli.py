@@ -64,7 +64,7 @@ class CLI:
                         if not my_pagerank:
                             print("Need to start simulation first!")
                             continue
-                        my_pagerank.StepN(command[2])
+                        my_pagerank.StepN(int(command[2]))
                     elif 'setp' == command[1]:
                         my_pagerank.SetRandomJump(command[2])
                     elif 'togglep' == command[1]:
