@@ -30,7 +30,6 @@ class CLI:
 
                 label_from = command[1]
                 label_to = command[2]
-                # weight = float(command[3])
 
                 try:
                     my_graph.AddEdge(label_from, label_to)

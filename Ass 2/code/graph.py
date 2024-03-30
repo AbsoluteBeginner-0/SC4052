@@ -14,22 +14,13 @@ class Graph:
         node_from = self.GetNodeFromLabel(label_from)
         node_to = self.GetNodeFromLabel(label_to)
 
-        # if weight < 0.0:
-        #     raise Exception(f"Invalid weight! Weight cannot be negative.")
-
-        # if node_from.GetEdgeSum() + weight > 1.0:
-        #     raise Exception(f"Available weight exceeded. Current sum of edge weights of {label_from} is {node_from.GetEdgeSum()}.")
-
         # check for existing edge
         potential_edge = node_from.GetEdge(node_to.GetLabel())
-        if not potential_edge:
-            self.__edges.append(node_from.AddEdge(node_to))
-            return
-        
-        # old_weight = potential_edge.GetWeight()
-        # potential_edge.SetWeight(weight)
-        # raise Exception(f"Existing edge of weight {old_weight} from '{label_from}' to '{label_to}' replaced with weight {weight}.")
+        if potential_edge:
+            raise Exception(f"Existing edge from '{label_from}' to '{label_to}'!")
 
+        self.__edges.append(node_from.AddEdge(node_to))
+ 
     def AddNode(self, label):
         for node in self.__nodes:
             if label == node.GetLabel():
