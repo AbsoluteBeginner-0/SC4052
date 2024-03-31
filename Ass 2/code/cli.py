@@ -1,5 +1,6 @@
 import graph
 import pagerank
+import random
 
 class CLI:
     __my_graph = None
@@ -77,6 +78,7 @@ class CLI:
             print("Invalid command.")
 
     def Run(self):
+        random.seed(42069)
         self.__my_graph = graph.Graph()
         self.__my_pagerank = None
         while(True):
