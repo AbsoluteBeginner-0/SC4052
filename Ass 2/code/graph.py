@@ -52,7 +52,7 @@ class Graph:
         raise Exception("No node with label '" + label + "' exists!")
     
     def GetRandomNode(self):
-        return self.__nodes[random.randint(1, self.__node_count)].GetLabel()
+        return self.__nodes[random.randint(0, self.__node_count - 1)].GetLabel()
     
     def Print(self):
         print("Vertices:")
