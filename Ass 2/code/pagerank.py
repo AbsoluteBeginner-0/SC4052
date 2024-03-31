@@ -24,6 +24,7 @@ class PageRank:
         print(f"[PageRank] Random jump set to " + "True" if self.__random_jump else "False" + "!")
 
     def Step(self):
+        curr_node = self.__graph.GetNodeFromLabel(self.__surfer_node)
         edges = curr_node.GetEdges()
         if 0 == len(edges) or (self.__random_jump and random.random() <= (1 - self.__damp)):
             self.__surfer_node = self.__graph.GetRandomNode()
@@ -31,7 +32,6 @@ class PageRank:
             return
         
         p = random.random()
-        curr_node = self.__graph.GetNodeFromLabel(self.__surfer_node)
         edge_sum = 0
         for edge in edges:
             edge_sum += edge.GetWeight()
