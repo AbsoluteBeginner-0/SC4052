@@ -52,13 +52,14 @@ class CLI:
                 elif 'stop' == command[1]:
                     del self.__my_pagerank
                     self.__my_pagerank = None
+                    print("[PageRank]: Simulation ended!")
                 else:
                     print("Invalid command.")
                     return 0
             elif 3 == len(command):
                 if 'step' == command[1]:
                     if not self.__my_pagerank:
-                        print("Need to start simulation first!")
+                        print("[PageRank]: Need to start simulation first!")
                         return 0
                     self.__my_pagerank.StepN(int(command[2]))
                 elif 'setp' == command[1]:

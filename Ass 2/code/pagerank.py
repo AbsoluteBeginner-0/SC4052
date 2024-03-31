@@ -13,22 +13,22 @@ class PageRank:
         self.__surfer_node = self.__graph.GetRandomNode()
         self.__vec = [1 / self.__graph.GetNodeCount()] * self.__graph.GetNodeCount()
         print(self.__vec)
-        print(f"PageRank simulation started with surfer at {self.__surfer_node}!")
+        print(f"[PageRank]: Simulation started with surfer at {self.__surfer_node}!")
     
     def SetRandomJump(self, d):
         self.__damp = d
-        print(f"[PageRank] Dampening factor set to {self.__damp}!")
+        print(f"[PageRank]: Dampening factor set to {self.__damp}!")
     
     def ToggleRandomJump(self, bool):
         self.__random_jump = bool
-        print(f"[PageRank] Random jump set to " + "True" if self.__random_jump else "False" + "!")
+        print(f"[PageRank]: Random jump set to " + "True" if self.__random_jump else "False" + "!")
 
     def Step(self):
         curr_node = self.__graph.GetNodeFromLabel(self.__surfer_node)
         edges = curr_node.GetEdges()
         if 0 == len(edges) or (self.__random_jump and random.random() <= (1 - self.__damp)):
             self.__surfer_node = self.__graph.GetRandomNode()
-            print(f"Surfer randomly jumped to {self.__surfer_node}!")
+            print(f"[PageRank]: Surfer randomly jumped to {self.__surfer_node}!")
             return
         
         p = random.random()
@@ -40,8 +40,8 @@ class PageRank:
                 break
         self.CalculatePageRank()
         
-        print(f"Surfer clicked on {self.__surfer_node}!")
-        print(f"New PageRank weights: {self.__vec}")
+        print(f"[PageRank]: Surfer clicked on {self.__surfer_node}!")
+        print(f"[PageRank]: New PageRank weights: {self.__vec}")
         
     def StepN(self, n):
         for i in range(n):
