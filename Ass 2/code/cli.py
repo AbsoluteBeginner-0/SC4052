@@ -61,7 +61,7 @@ class CLI:
                         return 0
                     self.__my_pagerank.StepN(int(command[2]))
                 elif 'setp' == command[1]:
-                    self.__my_pagerank.SetRandomJump(command[2])
+                    self.__my_pagerank.SetRandomJump(float(command[2])
                 elif 'togglep' == command[1]:
                     if 'on' == command[2]:
                         self.__my_pagerank.ToggleRandomJump(True)
