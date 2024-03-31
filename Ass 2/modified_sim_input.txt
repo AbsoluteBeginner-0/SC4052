@@ -1,0 +1,48 @@
+vertex a
+vertex b
+vertex c
+vertex d
+vertex e
+vertex f
+vertex g
+vertex h
+vertex i
+vertex j
+edge a b
+edge a c
+edge a g
+edge b e
+edge b g
+edge b h
+edge c d
+edge c f
+edge c g
+edge d a
+edge d j
+edge e g
+edge e h
+edge f d
+edge f i
+edge g c
+edge g f
+edge g i
+edge h j
+edge i j
+edge j h 
+edge j i
+edge j j
+print
+sim start
+sim step 10
+sim step 10
+sim stop
+sim start
+sim setp 0.8
+sim togglep on
+sim step 20
+sim stop
+sim start
+sim setp 0.5
+sim togglep on
+sim step 20
+sim stop
