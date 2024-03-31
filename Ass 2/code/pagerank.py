@@ -55,4 +55,4 @@ class PageRank:
 
         if self.__random_jump:
             for i in range(len(self.__vec)):
-                self.__vec[i] = (1 - self.__damp) / len(self.vec) + self.__vec[i] * self.__damp
+                self.__vec[i] = (1 - self.__damp) / len(self.__vec) + self.__vec[i] * self.__damp
