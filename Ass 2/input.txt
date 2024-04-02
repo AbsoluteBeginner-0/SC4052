@@ -1,0 +1,12 @@
+vertex yahoo
+vertex amazon
+vertex microsoft
+edge yahoo yahoo
+edge yahoo amazon
+edge amazon yahoo
+edge amazon microsoft
+edge microsoft microsoft
+print
+sim start
+sim setp 0.8
+sim togglep on
