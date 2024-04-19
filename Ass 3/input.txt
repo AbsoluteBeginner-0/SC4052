@@ -1,0 +1,10 @@
+text readall metamorphosis.txt
+sim start
+sim setp 0.8
+sim togglep on
+sim verbose off
+sim step 10
+print
+sim gettop 4
+sim stop
+exit
