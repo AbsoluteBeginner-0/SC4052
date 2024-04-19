@@ -1,4 +1,4 @@
-text readall metamorphosis.txt
+text readlines bullets.txt
 sim start
 sim setp 0.8
 sim togglep on

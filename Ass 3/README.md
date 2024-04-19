@@ -1,31 +1,40 @@
-The present code simulates a PageRank algorithm on a directed graph with a command-line interface.
+The present code simulates a TextRank algorithm on a textual input with a command-line interface.
 To run it, run main.py.
 
 The command-line interface accepts the following commands:
 
-vertex <vertex-name>
-Adds a vertex with label "vertex-name" to the graph space.
+sentence "<sentence>"
+Adds a vertex with label "sentence" to the graph space.
 
-edge <a> <b>
-Adds an edge from vertex "a" to vertex "b" in the graph space. Both "a" and "b" must be existing vertices.
+text "<file.txt>"
+Reads <file.txt> line-by-line and adds a vertex for each line.
+
+text readall "<file.txt>"
+Reads <file.txt> and split it into sentences, adds a vertex for each sentence. 
 
 print
 Prints the current graph information including vertices, edges, and adjacency matrix.
 
 sim start
-Creates a PageRank instance for the current graph. Only one PageRank instance may exist at a time.
+Creates a TextRank instance for the current graph. Only one TextRank instance may exist at a time.
 
 sim stop
-Deletes the current PageRank instance.
+Deletes the current TextRank instance.
 
 sim setp p
 Sets the dampening factor to p, with 0 <= p <= 1
 
 sim togglep [on/off]
-Toggles between the simplified and modified versions of PageRank with "on" corresponding to the latter.
+Toggles between the simplified and modified versions of TextRank with "on" corresponding to the latter.
+
+sim verbose [on/off]
+Toggles verbose outputs.
 
 sim step n
-Run n iterations of the PageRank calculation.
+Run n iterations of the TextRank calculation.
+
+sim gettop n
+Returns the top n vertex labels of the TextRank instance.
 
 file <path>
 Loads all commands in file at <path>
